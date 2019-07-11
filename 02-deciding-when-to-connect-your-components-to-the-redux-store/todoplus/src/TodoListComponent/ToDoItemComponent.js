@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 import TextComponent from "./TextComponent";
 import CheckComponent from './CheckComponent';
 import { deleteItem, printItem, togglCheck } from '../actions';
+import ButtonComponent from './ButtonComponent';
 
 class TodoItemComponent extends Component{
     render(){
         const  { itemId, item, togglCheck, deleteItem, printItem } = this.props;
-        console.log(item);
+
         return (
             <div className="list-item">
                 { item.isCheckItem ? (
@@ -24,6 +25,15 @@ class TodoItemComponent extends Component{
                         itemText={item.label}    
                     />
                 )}
+                {
+                    item.hasActions && (
+                        <ButtonComponent 
+                            itemId={itemId}
+                            printItem={printItem}
+                            deleteItem={deleteItem}
+                        />
+                    )
+                }
             </div>
         )
     }    

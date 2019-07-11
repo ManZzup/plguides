@@ -46,9 +46,14 @@ export default function todoReducer(state, action) {
             break;
         
         case TOGGLE_CHECK:  
-            var items = [...state.tasks];
-            items[action.itemIndex].isChecked = !items[action.itemIndex].isChecked;
-            state = {...state, tasks: items};
+            state = { 
+                ...state, 
+                tasks: state.tasks.map(
+                    (task, i) => i === action.itemIndex ? 
+                                    {...task, isChecked: !task.isChecked}
+                                    : task
+                )
+            }
     }
 
     // We create an empty reducer for now
