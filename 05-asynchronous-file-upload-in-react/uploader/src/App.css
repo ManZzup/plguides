@@ -1,0 +1,22 @@
+.App{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.App form{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  width: 200px;
+  margin-top: 20px;
+}
+
+input, textarea {
+  margin-top: 10px;
+  width: 300px;
+}
